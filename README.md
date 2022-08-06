@@ -32,7 +32,7 @@ Nightly backups aren't as good as hourly backups, granted, but they are way bett
 	3. Type "command+shift+g" to bring forward the "Go to" prompt
 	4. Type "/bin/bash" to navigate the /bin folder and select bash
 	5. With "bash" selected, click the "Open" button to add it to the list of applications that have full disk access.
-	6. Ensure the checkbox next to bash is checked
+	6. Ensure the checkbox next to "bash" is checked
 
 <img width="764" height="665" src="https://github.com/JackWellborn/Nightly-Time-Machine/blob/main/images/security-and-privacy.png?raw=true" alt="bash with full disk access"></img>
 
