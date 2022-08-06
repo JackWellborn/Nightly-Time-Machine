@@ -5,7 +5,7 @@ Set and forget Time Machine backups on laptops.
 A collection of bash scripts that limits macOS's [Time Machine][] to once per night by only mounting Time Machine disks just before backing up and then unmounting them when Time Machine is finished. Preventing Time Machine disks from automatically mounting when connected also ensures they can be safely disconnected throughout the day.   
 
 ## Why
-At it's best, Time Machine is "set it and forget it" in that you should never really have to think about it until a back up is needed or a backup disk needs to be replaced. Time Machine is inarguably at its best on desktops. This isn't surprising, considering [Time Machine was released][] back when [desktops still outsold laptops][]. The biggest indicator that Time Machine is a desktop-first feature is hourly back ups. From Apple's documentation:
+At it's best, Time Machine is "set it and forget it" in that you should never really have to think about it until a backup is needed or a backup disk needs to be replaced. Time Machine is inarguably at its best on desktops. This isn't surprising, considering [Time Machine was released][] back when [desktops still outsold laptops][]. The biggest indicator that Time Machine is a desktop-first feature is hourly back ups. From Apple's documentation:
 
 > Time Machine automatically makes hourly backups for the past 24 hours, daily backups for the past month, and weekly backups for all previous months. The oldest backups are deleted when your backup disk is full.
 
@@ -13,9 +13,9 @@ Hourly backups make total sense in scenarios where backup disks remain connected
 
 Having recently experienced this degraded experience after replacing an iMac with a MacBook Pro, I saw three outcomes in my future: 
 
-1. Stop using Time Machine.
-2. Try and remember to unmount the Time Machine disk _every time_ before disconnecting the drive, only to still periodically forget and get dreaded "disk was not ejected properly" notification.
-3. Figure out a way to only mount and backup to my Time Machine disk during hours that I am least likely to illicitly disconnect it. 
+1. Stop using Time Machine
+2. Try and remember to unmount the Time Machine disk _every time_ before disconnecting the drive, only to still periodically forget and get dreaded "disk was not ejected properly" notification
+3. Figure out a way to only mount and backup to my Time Machine disk during hours that I am least likely to illicitly disconnect it
 
 Nightly backups aren't as good as hourly backups, granted, but they are way better than both non-existant and damaged backups. 
 
