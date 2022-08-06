@@ -34,7 +34,7 @@ Nightly backups aren't as good as hourly backups, granted, but they are way bett
 	5. With "bash" selected, click the "Open" button to add it to the list of applications that have full disk access.
 	6. Ensure the checkbox next to bash is checked
 
-<img width="764 height="665" src="https://github.com/JackWellborn/Nightly-Time-Machine/blob/main/images/security-and-privacy.png?raw=true" alt="bash with full disk access"></img>
+<img width="764" height="665" src="https://github.com/JackWellborn/Nightly-Time-Machine/blob/main/images/security-and-privacy.png?raw=true" alt="bash with full disk access"></img>
 
 ### To Uninstall
 1. In Terminal, navigate to the project folder and run `Disable Nightly Time Machine.sh`, which makes two changes to your computer:
