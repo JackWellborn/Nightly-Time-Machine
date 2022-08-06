@@ -24,7 +24,7 @@ Nightly backups aren't as good as hourly backups, granted, but they are way bett
 1. Download this project to a folder of your choosing. 
 2. Connect your Time Machine disk
 3. In Terminal, navigate to the project folder and run `./Enable Nightly Time Machine.sh`, which makes two changes to your computer:
-	1. Schedules a `launchd` job at a specified hour to mount your Time Machine disk, run Time Machine, and then unmount your Time Machine disk.
+	1. Schedules a [`launchd`][] job at a specified hour to mount your Time Machine disk, run Time Machine, and then unmount your Time Machine disk.
 	2. Adds an enty in [`/etc/fstab`][] that will prevent your Time Machine disk from automatically mounting when connected.
 4. Give bash full disk access in the **Security &amp; Privacy** preference pane.
 	1. If the lock in the bottom lefthand corner is locked, click it to unlock. This will prompt you for your password.
@@ -45,3 +45,4 @@ Nightly backups aren't as good as hourly backups, granted, but they are way bett
 [Time Machine]: https://support.apple.com/en-us/HT201250
 [desktops still outsold laptops]: https://arstechnica.com/gadgets/2008/01/2008-could-be-the-year-laptop-sales-eclipse-desktops-in-us/
 [`/etc/fstab`]: https://en.wikipedia.org/wiki/Fstab
+[`launchd`]: https://en.wikipedia.org/wiki/Launchd
