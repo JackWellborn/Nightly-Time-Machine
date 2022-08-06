@@ -5,7 +5,7 @@ Set and forget Time Machine backups on laptops.
 A collection of bash scripts that limits macOS's [Time Machine][] to once per night by only mounting Time Machine disks just before backing up and then unmounting them when Time Machine is finished. Preventing Time Machine disks from automatically mounting when connected also ensures they can be safely disconnected throughout the day.   
 
 ## Why
-At it's best, Time Machine is "set and forget it" in that you should never really have to think about it until a back up is needed or a backup disk needs to be replaced. Time Machine is inarguably at it's best on desktops. This isn't surprising, considering [Time Machine was released][] back when [desktops still outsold laptops][]. The biggest indicator that Time Machine is a desktop-first feature is hourly back ups. From Apple's documentation:
+At it's best, Time Machine is "set it and forget it" in that you should never really have to think about it until a back up is needed or a backup disk needs to be replaced. Time Machine is inarguably at it's best on desktops. This isn't surprising, considering [Time Machine was released][] back when [desktops still outsold laptops][]. The biggest indicator that Time Machine is a desktop-first feature is hourly back ups. From Apple's documentation:
 
 > Time Machine automatically makes hourly backups for the past 24 hours, daily backups for the past month, and weekly backups for all previous months. The oldest backups are deleted when your backup disk is full.
 
