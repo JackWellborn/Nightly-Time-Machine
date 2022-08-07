@@ -21,17 +21,17 @@ Nightly backups aren't as good as hourly backups, granted, but they are way bett
 
 ## How
 ### To Install
-1. Download this project to a folder of your choosing. 
+1. Download this project to a folder of your choosing 
 2. Connect your Time Machine disk
 3. In Terminal, navigate to the project folder and run `./Enable Nightly Time Machine.sh`, which makes two changes to your computer:
-	1. Schedules a [`launchd`][] job at a specified hour to mount your Time Machine disk, run Time Machine, and then unmount your Time Machine disk.
-	2. Adds an enty in [`/etc/fstab`][] that will prevent your Time Machine disk from automatically mounting when connected.
-4. Give bash full disk access in the **Security &amp; Privacy** preference pane.
+	1. Schedules a [`launchd`][] job at a specified hour to mount your Time Machine disk, run Time Machine, and then unmount your Time Machine disk
+	2. Adds an enty in [`/etc/fstab`][] that will prevent your Time Machine disk from automatically mounting when connected
+4. Give bash full disk access in the **Security &amp; Privacy** preference pane
 	1. If the lock in the bottom lefthand corner is locked, click it to unlock. This will prompt you for your password.
 	2. Click the ＋ (plus) button 
 	3. Type "command+shift+g" to bring forward the "Go to" prompt
 	4. Type "/bin/bash" to navigate the /bin folder and select bash
-	5. With "bash" selected, click the "Open" button to add it to the list of applications that have full disk access.
+	5. With "bash" selected, click the "Open" button to add it to the list of applications that have full disk access
 	6. Ensure the checkbox next to "bash" is checked
 
 <img width="764" height="665" src="https://github.com/JackWellborn/Nightly-Time-Machine/blob/main/images/security-and-privacy.png?raw=true" alt="bash with full disk access"></img>
@@ -40,12 +40,15 @@ Nightly backups aren't as good as hourly backups, granted, but they are way bett
 #### Verify Changes
 You can verify that `./Enable Nightly Time Machine.sh` worked as expected by manually checking the changes it's supposed to make:
 
-1. That `/etc/fstab` exists with an entry for your Time Machine disk. 
-2. That `com.jackwellborn.nightlytimemachine.plist` exists in `~/Library/LaunchAgents` containing xml with `ProgramArguments` of `/bin/bash` and the absolute path of Mount Time `Machine Disk and Back Up.sh`, as well as an `Hour` of whatever hour you set. Additionally, you can check that the `launchd` job is loaded by running the following command in terminal:
+1. That `/etc/fstab` exists with an entry for your Time Machine disk 
+2. That `com.jackwellborn.nightlytimemachine.plist` exists in `~/Library/LaunchAgents` containing xml with `ProgramArguments` of `/bin/bash` and the absolute path of Mount Time `Machine Disk and Back Up.sh`, as well as an `Hour` of whatever hour you set. 
+3. That the `launchd` job is loaded by running the following command in terminal:
 
-	launchctl list | grep "com.jackwellborn.nightlytimemachine".  
+```
+launchctl list | grep "com.jackwellborn.nightlytimemachine".  
+```
 	
-That will return something like `-	0	com.jackwellborn.nightlytimemachine` if it's loaded and nothing if not.
+	That will return something like `-	0	com.jackwellborn.nightlytimemachine` if it's loaded and nothing if not.
 
 ### To Uninstall
 1. In Terminal, navigate to the project folder and run `Disable Nightly Time Machine.sh`, which makes two changes to your computer:
