@@ -1,8 +1,8 @@
 # Nightly Time Machine
-Set and forget Time Machine backups on laptops.
+At it's best, Time Machine is "set it and forget it", but Set and forget Time Machine backups on laptops.
 
 ## What
-A collection of bash scripts that limits macOS's [Time Machine][] to once per night by only mounting Time Machine disks just before backing up and then unmounting them when Time Machine is finished. Preventing Time Machine disks from automatically mounting when connected also ensures they can be safely disconnected throughout the day.   
+_Nightly Time Machine_ is a collection of bash scripts that limits macOS's [Time Machine][] to once per night by only mounting Time Machine disks just before backing up and then unmounting them when Time Machine is finished. Preventing Time Machine disks from automatically mounting when connected also ensures they can be safely disconnected throughout the day.   
 
 ## Why
 At it's best, Time Machine is "set it and forget it" in that you should never really have to think about it until a backup is needed or a backup disk needs to be replaced. Time Machine is inarguably at its best on desktops. This isn't surprising, considering [Time Machine was released][] back when [desktops still outsold laptops][]. The biggest indicator that Time Machine is a desktop-first feature is hourly back ups. From Apple's documentation:
