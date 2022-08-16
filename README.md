@@ -21,7 +21,7 @@ At its best, Time Machine is "set it and forget it" in that you should never rea
 	4. Type "/bin/bash" to navigate the /bin folder and select bash
 	5. With "bash" selected, click the "Open" button to add it to the list of applications that have full disk access
 	6. Ensure the checkbox next to "bash" is checked<br/><img width="764" height="665" src="https://github.com/JackWellborn/Nightly-Time-Machine/blob/main/images/security-and-privacy.png?raw=true" alt="bash with full disk access"></img>
-5. (Optionally) Adjust notifications for Script Editor in the **Notifications &amp;Focus** to alert when _Nightly Time Machine_ completes or fails
+5. (Optionally) Adjust notifications for Script Editor in the **Notifications &amp; Focus** to alert when _Nightly Time Machine_ completes or fails
 	1. Ensure "Allow Notification" toggle is on
 	2. Set "Script Editor alert style" to "Alerts"
 	3. Set "Notification grouping" to "off"<br/><img width="780" height="839" src="https://raw.githubusercontent.com/JackWellborn/Nightly-Time-Machine/main/images/notifications-and-focus.png?raw=true" alt="Script Editor notification settings"></img>
