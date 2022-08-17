@@ -21,12 +21,13 @@ At its best, Time Machine is "set it and forget it" in that you should never rea
 	4. Type "/bin/bash" to navigate the /bin folder and select bash
 	5. With "bash" selected, click the "Open" button to add it to the list of applications that have full disk access
 	6. Ensure the checkbox next to "bash" is checked<br/><img width="764" height="665" src="https://github.com/JackWellborn/Nightly-Time-Machine/blob/main/images/security-and-privacy.png?raw=true" alt="bash with full disk access"></img>
-5. (Optionally) Adjust notifications for Script Editor in the **Notifications &amp; Focus** to alert when _Nightly Time Machine_ completes or fails
+5. Prevent automatically sleeping when connected to power in the **Battery** preference pane
+	1. Select "Power adapter" in the lefthand side
+	2. Ensure "Prevent your Mac from automatically sleeping when the display is off" is checked<br/><img width="780" height="622" src="https://raw.githubusercontent.com/JackWellborn/Nightly-Time-Machine/main/images/battery.png?raw=true" alt="Script Editor notification settings"></img>
+6. (Optionally) Adjust notifications for Script Editor in the **Notifications &amp; Focus** preference pane to alert when _Nightly Time Machine_ completes or fails
 	1. Ensure "Allow Notification" toggle is on
 	2. Set "Script Editor alert style" to "Alerts"
 	3. Set "Notification grouping" to "off"<br/><img width="780" height="839" src="https://raw.githubusercontent.com/JackWellborn/Nightly-Time-Machine/main/images/notifications-and-focus.png?raw=true" alt="Script Editor notification settings"></img>
-
-
 
 ### To Troubleshoot
 #### Verify Changes
@@ -39,7 +40,6 @@ You can verify that `./Enable Nightly Time Machine.sh` worked as expected by man
 ```
 launchctl list | grep "com.jackwellborn.nightlytimemachine".  
 ```
-
 
 ### To Uninstall
 1. In Terminal, navigate to the project folder and run `Disable Nightly Time Machine.sh`, which makes two changes to your computer:
