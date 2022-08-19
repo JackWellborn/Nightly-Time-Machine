@@ -38,7 +38,7 @@ You can verify that `./Enable Nightly Time Machine.sh` worked as expected by man
 3. That the `launchd` job is loaded by running the following command in terminal, which will return something like `-	0	com.jackwellborn.nightlytimemachine` if it's loaded and nothing if not:
 
 ```
-launchctl list | grep "com.jackwellborn.nightlytimemachine".  
+launchctl list | grep "com.jackwellborn.nightlytimemachine"
 ```
 
 ### To Uninstall
