@@ -2,10 +2,11 @@
 
 backup_drive=$(tmutil destinationinfo | sed -rn 's/(Name +\: )//p')
 
-echo "Continuing this script will make two changes to your computer:
+echo "Continuing this script will make three changes to your computer:
 
-1. A job will be scheduled at a specified hour to mount your Time Machine disk, run Time Machine, and then unmount your Time Machine disk.
-2. Your Time Machine disk will no longer automatically mount when connected.
+1. Script Editor will be added to the list of apps available in the Notification & Focus preference pane. 
+2. A job will be scheduled at a specified hour to mount your Time Machine disk, run Time Machine, and then unmount your Time Machine disk.
+3. Your Time Machine disk will no longer automatically mount when connected.
 
 Time Machine disk: $backup_drive
 
@@ -18,6 +19,9 @@ then
 	echo "Exiting. No changes have been made."
 	exit;
 fi
+
+osascript -e 'display notification "Added Script Editor to the list of apps available in the Notification & Focus preference pane." with title "Nightly Time Machine"'
+echo "Added Script Editor to the list of apps available in the Notification & Focus preference pane."
 
 drive_info=$(diskutil info "$backup_drive" 2>&1 > /dev/null)
 
