@@ -20,7 +20,8 @@ if [[ $drive_info = "Could not find disk: $backup_drive" ]];
 	output "Time Machine disk \"$backup_drive\" is not connected." "Backup Failed"
 	exit
 fi
-diskutil mount "$backup_drive"
+backup_uuid=$(diskutil info "$backup_drive" | sed -rn "s/ +Volume UUID\: +//p")
+diskutil mount "$backup_uuid"
 
 tmutil startbackup
 
@@ -44,9 +45,9 @@ while [ $(tmutil currentphase) != 'BackupNotRunning' ];
 done;
 
 response="Time Machine backup completed"
-unmount_err=$(diskutil unmount "$backup_drive" 2>&1 > /dev/null)
+unmount_err=$(diskutil unmount "$backup_uuid" 2>&1 > /dev/null)
 if [ "$?" -ne 0 ]; then
-	output "$response, but the \"$backup_drive\" failed to unmount." "Unmount Failed"
+	output "$response, but \"$backup_drive\" failed to unmount." "Unmount Failed"
 else 
 	output "$response and \"$backup_drive\" has been unmounted." "Backup Complete"
 fi
