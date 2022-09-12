@@ -46,6 +46,11 @@ launchctl list | grep "com.jackwellborn.nightlytimemachine"
 	1. Removes the `launchd` job that mounts a Time Machine disk, runs Time Machine, and then unmounts your Time Machine disk.
 	2. Removes the enty in `/etc/fstab` that prevents your Time Machine disk from automatically mount when connected.
 
+## Updates
+### 2022-09-12
+#### Fixed issue with macOS Ventura Public Beta 5
+Apple's `diskutil` fails to mount the Time Machine disk using the disk name in macOS Ventura pubic beta 5 so `Mount Time Machine Disk and Back Up.sh` has been updated to use the volume UUID instead. I suspect the mounting issue is temporary, but there doesn't seem to be any downside to just using the volume UUID going forward.
+
 [Time Machine was released]: https://en.wikipedia.org/wiki/Time_Machine_(macOS)
 [Time Machine]: https://support.apple.com/en-us/HT201250
 [desktops still outsold laptops]: https://arstechnica.com/gadgets/2008/01/2008-could-be-the-year-laptop-sales-eclipse-desktops-in-us/
