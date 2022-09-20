@@ -13,7 +13,7 @@ At its best, Time Machine is "set it and forget it" in that you should never rea
 2. Connect your Time Machine disk
 3. In Terminal, navigate to the project folder and run `./Enable Nightly Time Machine.sh`, which makes two changes to your computer:
 	1. Schedules a [`launchd`][] job at a specified hour to mount your Time Machine disk, run Time Machine, and then unmount your Time Machine disk
-	2. Adds an enty in [`/etc/fstab`][] that will prevent your Time Machine disk from automatically mounting when connected
+	2. Adds an entry in [`/etc/fstab`][] that will prevent your Time Machine disk from automatically mounting when connected
 4. Give bash full disk access in the **Security &amp; Privacy** preference pane
 	1. If the lock in the bottom lefthand corner is locked, click it to unlock. This will prompt you for your password.
 	2. Click the ＋ (plus) button 
@@ -44,7 +44,7 @@ launchctl list | grep "com.jackwellborn.nightlytimemachine"
 ### To Uninstall
 1. In Terminal, navigate to the project folder and run `Disable Nightly Time Machine.sh`, which makes two changes to your computer:
 	1. Removes the `launchd` job that mounts a Time Machine disk, runs Time Machine, and then unmounts your Time Machine disk.
-	2. Removes the enty in `/etc/fstab` that prevents your Time Machine disk from automatically mount when connected.
+	2. Removes the entry in `/etc/fstab` that prevents your Time Machine disk from automatically mount when connected.
 
 ## Updates
 ### 2022-09-12
