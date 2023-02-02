@@ -37,12 +37,25 @@ while [ $(tmutil currentphase) == 'BackupNotRunning' ];
 	sleep 1
 done;
 
+tm_stopped=false
 # Wait until Time Machine is no long running, then unmount.
 while [ $(tmutil currentphase) != 'BackupNotRunning' ]; 
 	do 
+	if [[ $(tmutil currentphase) = 'Stopping' ]];
+		then
+		tm_stopped=true
+		break
+	fi
 	echo 'Waiting for backup to complete.'
 	sleep 10
 done;
+
+if [[ "$tm_stopped" = true ]];
+then
+	output "Backup stopped before completing." "Backup Failed"
+	exit
+fi		
+	
 
 response="Time Machine backup completed"
 unmount_err=$(diskutil unmount "$backup_uuid" 2>&1 > /dev/null)
