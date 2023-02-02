@@ -65,9 +65,10 @@ The default is 1.
 		echo "Creating LaunchAgents folder in ~/Library"
 		mkdir "$launch_agents_directory"
 	fi
-
+	
+	current_directory="`dirname \"$0\"`"
 	script_path=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-	sed "s,%SCRIPT_PATH%,$script_path/," "./com.jackwellborn.nightlytimemachine-template.plist" > "./$plist_name"
+	sed "s,%SCRIPT_PATH%,$script_path/," "${current_directory}/com.jackwellborn.nightlytimemachine-template.plist" > "./$plist_name"
 
 	sed "s,%HOUR%,$tm_hour,g" "./$plist_name" > "$plist"
 

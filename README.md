@@ -11,7 +11,7 @@ At its best, Time Machine is "set it and forget it" in that you should never rea
 ### To Install
 1. Download this project to a folder of your choosing 
 2. Connect your Time Machine disk
-3. In Terminal, navigate to the project folder and run `./Enable Nightly Time Machine.sh`, which makes two changes to your computer:
+3. In Finder, navigate to the project folder and double click `./Enable Nightly Time Machine.command`, which makes two changes to your computer:
 	1. Schedules a [`launchd`][] job at a specified hour to mount your Time Machine disk, run Time Machine, and then unmount your Time Machine disk
 	2. Adds an entry in [`/etc/fstab`][] that will prevent your Time Machine disk from automatically mounting when connected
 4. Give bash full disk access in the **Security &amp; Privacy** preference pane
@@ -42,7 +42,7 @@ launchctl list | grep "com.jackwellborn.nightlytimemachine"
 ```
 
 ### To Uninstall
-1. In Terminal, navigate to the project folder and run `Disable Nightly Time Machine.sh`, which makes two changes to your computer:
+1. In Finder, navigate to the project folder and double click `./Disable Nightly Time Machine.command`, which makes two changes to your computer:
 	1. Removes the `launchd` job that mounts a Time Machine disk, runs Time Machine, and then unmounts your Time Machine disk.
 	2. Removes the entry in `/etc/fstab` that prevents your Time Machine disk from automatically mount when connected.
 
@@ -51,8 +51,20 @@ launchctl list | grep "com.jackwellborn.nightlytimemachine"
 #### Fixed issue with macOS Ventura Public Beta 5
 Apple's `diskutil` fails to mount the Time Machine disk using the disk name in macOS Ventura pubic beta 5 so `Mount Time Machine Disk and Back Up.sh` has been updated to use the volume UUID instead. I suspect the mounting issue is temporary, but there doesn't seem to be any downside to just using the volume UUID going forward.
 
+### 2023-02-01
+#### Surfaces error for when Time Machine stops unexpectedly
+At somepoint after installing Ventura, I've noticed some backups would stop with the following error:
+> Time Machine did not finish backing up because some files were unavailable. Backups will resume when your Mac is unlocked.
+
+While I have yet to workaround this issue, I have updated out to capture and output when backups unexpectedly stop.
+
+#### Rename enable and disable scripts to use `.command` extension
+Per [Chuck Houpt][]'s [recommendation][], using `.command` makes it possible to execute these scripts merely by double clicking on them in Finder, which is both easier and less intimidating for those not familiar with the Terminal. 
+
 [Time Machine was released]: https://en.wikipedia.org/wiki/Time_Machine_(macOS)
 [Time Machine]: https://support.apple.com/en-us/HT201250
 [desktops still outsold laptops]: https://arstechnica.com/gadgets/2008/01/2008-could-be-the-year-laptop-sales-eclipse-desktops-in-us/
 [`/etc/fstab`]: https://en.wikipedia.org/wiki/Fstab
 [`launchd`]: https://en.wikipedia.org/wiki/Launchd
+[Chuck Houpt]: https://github.com/chuckhoupt
+[recommendation]: https://github.com/JackWellborn/Nightly-Time-Machine/issues/5
