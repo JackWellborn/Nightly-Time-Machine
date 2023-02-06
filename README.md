@@ -61,6 +61,13 @@ While I have yet to workaround this issue, I have updated out to capture and out
 #### Rename enable and disable scripts to use `.command` extension
 Per [Chuck Houpt][]'s [recommendation][], using `.command` makes it possible to execute these scripts merely by double clicking on them in Finder, which is both easier and less intimidating for those not familiar with the Terminal. 
 
+### 2023-02-06
+#### Unmount the Time Machine disk when the backup fails
+Now the script will try to unmount a mounted Time Machine disk even when the backup fails. 
+
+#### Update on the issue where Time Machine unexpectedly stops
+After researching the issue some more, I stumbled across [this thread and comment on the MacRumors forums][] that suggested running First Aid in Disk Utility resolves the issue despite finding no issues with the disks being scanned. I gave it a whirl and sure enough, this seemed to fix my issue for now. I will give it a few days to confirm before resolving the [associated issue][]. 
+
 [Time Machine was released]: https://en.wikipedia.org/wiki/Time_Machine_(macOS)
 [Time Machine]: https://support.apple.com/en-us/HT201250
 [desktops still outsold laptops]: https://arstechnica.com/gadgets/2008/01/2008-could-be-the-year-laptop-sales-eclipse-desktops-in-us/
@@ -68,3 +75,5 @@ Per [Chuck Houpt][]'s [recommendation][], using `.command` makes it possible to 
 [`launchd`]: https://en.wikipedia.org/wiki/Launchd
 [Chuck Houpt]: https://github.com/chuckhoupt
 [recommendation]: https://github.com/JackWellborn/Nightly-Time-Machine/issues/5
+[this thread and comment on the MacRumors forums]: https://forums.macrumors.com/threads/time-machine-experiencing-multiple-issues-on-monterey-my-personal-issue-resolved.2319832/page-22?post=30710422#post-30710422
+[associated issue]: https://github.com/JackWellborn/Nightly-Time-Machine/issues/4
