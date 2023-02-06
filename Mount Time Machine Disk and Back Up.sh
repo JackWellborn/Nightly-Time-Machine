@@ -11,6 +11,33 @@ output() {
 EOF
 }
 
+unmount() {
+	backup_succeeded=$1
+	backup_status_message=$2
+	response="Time Machine backup completed"
+	unmount_err=$(diskutil unmount "$backup_uuid" 2>&1 > /dev/null)
+	if [ "$?" -ne 0 ]; then
+		mount_status="the backup drive failed to unmount"
+		if [[ "$backup_succeeded" = true ]];
+		then
+			output "$response, but $mount_status." "Unmount Failed"
+		else
+			response="Backup stopped before completing"
+			output "$response and $mount_status." "Backup and Unmount Failed"
+		fi
+	else
+		mount_status="the backup drive was unmounted successfully"
+		if [[ "$backup_succeeded" = true ]];
+		then
+			output "$response and $mount_status." "Backup Complete"
+		else
+			response="Backup stopped before completing"
+			output "$response, but $mount_status." "Backup and Unmount Failed"
+		fi
+	fi 
+		
+}
+
 backup_drive=$(tmutil destinationinfo | sed -rn 's/(Name +\: )//p')
 tm_timeout=120
 
@@ -31,7 +58,7 @@ while [ $(tmutil currentphase) == 'BackupNotRunning' ];
 	tm_timeout=$(($tm_timeout-1))
 	if [[ $tm_timeout -le 0 ]];
 		then
-		output "Time Machine backup to \"$backup_drive\" was unable to start." "Backup Failed"
+		unmount false "Time Machine backup to \"$backup_drive\" was unable to start."
 		exit
 	fi
 	sleep 1
@@ -52,15 +79,9 @@ done;
 
 if [[ "$tm_stopped" = true ]];
 then
-	output "Backup stopped before completing." "Backup Failed"
+	unmount false "Backup stopped before completing"
 	exit
-fi		
-	
-
-response="Time Machine backup completed"
-unmount_err=$(diskutil unmount "$backup_uuid" 2>&1 > /dev/null)
-if [ "$?" -ne 0 ]; then
-	output "$response, but \"$backup_drive\" failed to unmount." "Unmount Failed"
-else 
-	output "$response and \"$backup_drive\" has been unmounted." "Backup Complete"
 fi
+unmount true "Time Machine backup completed"
+
+
