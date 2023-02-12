@@ -41,15 +41,37 @@ You can verify that `./Enable Nightly Time Machine.sh` worked as expected by man
 launchctl list | grep "com.jackwellborn.nightlytimemachine"
 ```
 
+#### Solved Issues
+##### Time Machine stops before completing backups
+Backups can prematurely stop because Time Machine erroneously loses access to some files when the Mac is locked. While in this state, the issue occurs even when running Time Machine and locking the Mac manually. When Time Machine fails in this manner, you can see the following error in Time Machine Settings:
+
+> Time Machine did not finish backing up because some files were unavailable. Backups will resume when your Mac is unlocked.
+
+The following steps should resolve the issue:
+
+1. [Restart your Mac in Recovery mode][].
+2. In Recovery mode, open Disk Utility.
+3. In Disk Utility, [run First Aid on each of the Disks][] listed in the lefthand side.
+
 ### To Uninstall
 1. In Finder, navigate to the project folder and double click `./Disable Nightly Time Machine.command`, which makes two changes to your computer:
 	1. Removes the `launchd` job that mounts a Time Machine disk, runs Time Machine, and then unmounts your Time Machine disk.
 	2. Removes the entry in `/etc/fstab` that prevents your Time Machine disk from automatically mount when connected.
 
 ## Updates
-### 2022-09-12
-#### Fixed issue with macOS Ventura Public Beta 5
-Apple's `diskutil` fails to mount the Time Machine disk using the disk name in macOS Ventura pubic beta 5 so `Mount Time Machine Disk and Back Up.sh` has been updated to use the volume UUID instead. I suspect the mounting issue is temporary, but there doesn't seem to be any downside to just using the volume UUID going forward.
+### 2023-02-12
+#### Detailed fix for premature stopping in this README
+As the issue wherein Time Machine unexpectedly stops still appears to be resolved, I have detailed the fix in a new "Solved Issues" section in this document.
+
+#### Reordered updates to be reverse chronological  
+As time goes on, I feel that more recent updates are more likely be relevant to future users of this project and so they should go on top.
+
+### 2023-02-06
+#### Unmount the Time Machine disk when the backup fails
+Now the script will try to unmount a mounted Time Machine disk even when the backup fails. 
+
+#### Update on the issue where Time Machine unexpectedly stops
+After researching the issue some more, I stumbled across [this thread and comment on the MacRumors forums][] that suggested running First Aid in Disk Utility resolves the issue despite finding no issues with the disks being scanned. I gave it a whirl and sure enough, this seemed to fix my issue for now. I will give it a few days to confirm before resolving the [associated issue][]. 
 
 ### 2023-02-01
 #### Surfaces error for when Time Machine stops unexpectedly
@@ -61,12 +83,12 @@ While I have yet to workaround this issue, I have updated out to capture and out
 #### Rename enable and disable scripts to use `.command` extension
 Per [Chuck Houpt][]'s [recommendation][], using `.command` makes it possible to execute these scripts merely by double clicking on them in Finder, which is both easier and less intimidating for those not familiar with the Terminal. 
 
-### 2023-02-06
-#### Unmount the Time Machine disk when the backup fails
-Now the script will try to unmount a mounted Time Machine disk even when the backup fails. 
+### 2022-09-12
+#### Fixed issue with macOS Ventura Public Beta 5
+Apple's `diskutil` fails to mount the Time Machine disk using the disk name in macOS Ventura pubic beta 5 so `Mount Time Machine Disk and Back Up.sh` has been updated to use the volume UUID instead. I suspect the mounting issue is temporary, but there doesn't seem to be any downside to just using the volume UUID going forward.
 
-#### Update on the issue where Time Machine unexpectedly stops
-After researching the issue some more, I stumbled across [this thread and comment on the MacRumors forums][] that suggested running First Aid in Disk Utility resolves the issue despite finding no issues with the disks being scanned. I gave it a whirl and sure enough, this seemed to fix my issue for now. I will give it a few days to confirm before resolving the [associated issue][]. 
+
+
 
 [Time Machine was released]: https://en.wikipedia.org/wiki/Time_Machine_(macOS)
 [Time Machine]: https://support.apple.com/en-us/HT201250
@@ -77,3 +99,5 @@ After researching the issue some more, I stumbled across [this thread and commen
 [recommendation]: https://github.com/JackWellborn/Nightly-Time-Machine/issues/5
 [this thread and comment on the MacRumors forums]: https://forums.macrumors.com/threads/time-machine-experiencing-multiple-issues-on-monterey-my-personal-issue-resolved.2319832/page-22?post=30710422#post-30710422
 [associated issue]: https://github.com/JackWellborn/Nightly-Time-Machine/issues/4
+[Restart your Mac in Recovery mode]: https://support.apple.com/guide/mac-help/intro-to-macos-recovery-mchl46d531d6/mac
+[run First Aid on each of the Disks]: https://support.apple.com/guide/mac-help/macos-recovery-a-mac-apple-silicon-mchl82829c17/13.0/mac/13.0#mchl3fe49482
