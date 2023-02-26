@@ -21,9 +21,15 @@ At its best, Time Machine is "set it and forget it" in that you should never rea
 	4. Type "/bin/bash" to navigate the /bin folder and select bash
 	5. With "bash" selected, click the "Open" button to add it to the list of applications that have full disk access
 	6. Ensure the checkbox next to "bash" is checked<br/><img width="764" height="665" src="https://github.com/JackWellborn/Nightly-Time-Machine/blob/main/images/security-and-privacy.png?raw=true" alt="bash with full disk access"></img>
-5. Prevent automatically sleeping when connected to power in the **Battery** preference pane
-	1. Select "Power adapter" in the lefthand side
-	2. Ensure "Prevent your Mac from automatically sleeping when the display is off" is checked<br/><img width="780" height="622" src="https://raw.githubusercontent.com/JackWellborn/Nightly-Time-Machine/main/images/battery.png?raw=true" alt="Script Editor notification settings"></img>
+5. Prevent automatically sleeping when connected to power
+    - Pre-macOS Ventura:
+      1. Open the **Battery** preference pane in System Preferences
+	    2. Select "Power adapter" in the lefthand side
+	    3. Ensure "Prevent your Mac from automatically sleeping when the display is off" is checked<br/><img width="780" height="622" src="https://raw.githubusercontent.com/JackWellborn/Nightly-Time-Machine/main/images/battery.png?raw=true" alt="Script Editor notification settings"></img>
+    - macOS Ventura:
+      1. Open the **Displays** preference pane in System Settings
+      2. Click "Advanced..." at the bottom of the pane
+      3. Ensure "Prevent automatically sleeping on power adapter when the display is off" is enabled<br />
 6. (Optionally) Adjust notifications for Script Editor in the **Notifications &amp; Focus** preference pane to alert when _Nightly Time Machine_ completes or fails
 	1. Ensure "Allow Notification" toggle is on
 	2. Set "Script Editor alert style" to "Alerts"
