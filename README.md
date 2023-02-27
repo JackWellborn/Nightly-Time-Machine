@@ -22,14 +22,14 @@ At its best, Time Machine is "set it and forget it" in that you should never rea
 	5. With "bash" selected, click the "Open" button to add it to the list of applications that have full disk access
 	6. Ensure the checkbox next to "bash" is checked<br/><img width="764" height="665" src="https://github.com/JackWellborn/Nightly-Time-Machine/blob/main/images/security-and-privacy.png?raw=true" alt="bash with full disk access"></img>
 5. Prevent automatically sleeping when connected to power
-    - Pre-macOS Ventura:
+    - macOS pre-Ventura:
       1. Open the **Battery** preference pane in System Preferences
-	    2. Select "Power adapter" in the lefthand side
-	    3. Ensure "Prevent your Mac from automatically sleeping when the display is off" is checked<br/><img width="780" height="622" src="https://raw.githubusercontent.com/JackWellborn/Nightly-Time-Machine/main/images/battery.png?raw=true" alt="Script Editor notification settings"></img>
+      2. Select "Power adapter" in the lefthand side
+      3. Ensure "Prevent your Mac from automatically sleeping when the display is off" is checked<br/><img width="780" height="622" src="https://raw.githubusercontent.com/JackWellborn/Nightly-Time-Machine/main/images/battery.png?raw=true" alt="Prevent automatic sleep in macOS pre-Venture"></img>
     - macOS Ventura:
       1. Open the **Displays** preference pane in System Settings
       2. Click "Advanced..." at the bottom of the pane
-      3. Ensure "Prevent automatically sleeping on power adapter when the display is off" is enabled<br />
+      3. Ensure "Prevent automatically sleeping on power adapter when the display is off" is enabled<br/><img width="780" src="https://raw.githubusercontent.com/JackWellborn/Nightly-Time-Machine/main/images/ventura-displays.png?raw=true" alt="Prevent automatic sleep in macOS Venture"></img>
 6. (Optionally) Adjust notifications for Script Editor in the **Notifications &amp; Focus** preference pane to alert when _Nightly Time Machine_ completes or fails
 	1. Ensure "Allow Notification" toggle is on
 	2. Set "Script Editor alert style" to "Alerts"
@@ -65,6 +65,9 @@ The following steps should resolve the issue:
 	2. Removes the entry in `/etc/fstab` that prevents your Time Machine disk from automatically mount when connected.
 
 ## Updates
+### 2023-02-26
+Added specific instructions for preventing automatic sleep in macOS Ventura. (Thanks [Alec Custer][]!)
+
 ### 2023-02-12
 #### Detailed fix for premature stopping in this README
 As the issue wherein Time Machine unexpectedly stops still appears to be resolved, I have detailed the fix in a new "Solved Issues" section in this document.
@@ -107,3 +110,4 @@ Apple's `diskutil` fails to mount the Time Machine disk using the disk name in m
 [associated issue]: https://github.com/JackWellborn/Nightly-Time-Machine/issues/4
 [Restart your Mac in Recovery mode]: https://support.apple.com/guide/mac-help/intro-to-macos-recovery-mchl46d531d6/mac
 [run First Aid on each of the Disks]: https://support.apple.com/guide/mac-help/macos-recovery-a-mac-apple-silicon-mchl82829c17/13.0/mac/13.0#mchl3fe49482
+[Alec Custer]: https://github.com/alechemy
